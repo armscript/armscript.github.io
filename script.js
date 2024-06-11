@@ -18,21 +18,23 @@ function compile(inputCode) {
 function replaceTopLevel(code, from, to) {
     let result = '';
     let depth = 0;
+    let inString = false;
     let i = 0;
 
     while (i < code.length) {
-        if (code.substr(i, from.length) === from && (i === 0 || /\s|\(|\)|;/.test(code[i - 1]))) {
-            if (depth === 0) {
-                result += to;
-                i += from.length;
-                continue;
-            }
+        if (code[i] === '"' && (i === 0 || code[i - 1] !== '\\')) {
+            inString = !inString;
         }
 
-        if (code[i] === '(') {
-            depth++;
-        } else if (code[i] === ')') {
-            depth--;
+        if (!inString) {
+            if (code.substr(i, from.length) === from && (i === 0 || /\s|\(|\)|;/.test(code[i - 1]))) {
+                if (depth === 0) {
+                    result += to;
+                    i += from.length;
+                    continue;
+                }
+            }
+
         }
 
         result += code[i];
@@ -41,5 +43,4 @@ function replaceTopLevel(code, from, to) {
 
     return result;
 }
-
 run.onclick = () => compile(inputDash.value);
