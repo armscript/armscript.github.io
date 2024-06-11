@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+body{
+    color: white;
+    background-color: black;
+}
+h1{
+    font-size: 50px;
+}
+textarea{
+    resize: none;
+    background-color: #1c2130;
+    color: white;
+    font-size: 20px;
+    padding: 12px 20px;
+}
+.center{
+    text-align: center;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.blockInputOutput{
+    background-color: #1c2130;
+    width: 100%;
+    height: 600px;
+    border: 1px solid white;
+}
+.big{
+    font-size: 40px;
+}
+.output{
+    overflow-y: auto;
+}
+.error{
+    background-color: lightcoral;
+    padding: 10px;
+}
+#textareaEditor, #textareaOutput{
+    width: 100%;
+    height: 100%;
+}
+#run{
+    background-color: #04AA6D;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    padding: 6px 25px;
+    margin-top: 4px;
+    border-radius: 5px;
+    word-spacing: 10px;
+    cursor: pointer;
+    align-items: center;
+    position: absolute;
+}
